@@ -10,3 +10,4 @@ C:\Users\USER\source\repos\MoodAnalyZerProblem\MoodAnalyZerProblem\obj\Debug\net
 C:\Users\USER\source\repos\MoodAnalyZerProblem\MoodAnalyZerProblem\obj\Debug\netcoreapp3.1\MoodAnalyZerProblem.dll
 C:\Users\USER\source\repos\MoodAnalyZerProblem\MoodAnalyZerProblem\obj\Debug\netcoreapp3.1\MoodAnalyZerProblem.pdb
 C:\Users\USER\source\repos\MoodAnalyZerProblem\MoodAnalyZerProblem\obj\Debug\netcoreapp3.1\MoodAnalyZerProblem.genruntimeconfig.cache
+C:\Users\USER\source\repos\MoodAnalyZerProblem\MoodAnalyZerProblem\obj\Debug\netcoreapp3.1\MoodAnalyZerProblem.csprojAssemblyReference.cache
