@@ -16,6 +16,8 @@ namespace MoodAnalyZerProblem
         {
             if (this.message.Contains("Sad"))
                 return "SAD";
+            else if (this.message.Contains("Happy"))
+                return "HAPPY";
             else
                 return "HAPPY";
         }
