@@ -28,6 +28,35 @@ namespace MoodAnalyseTest
             string mood = analyser.analyseMood();
             Assert.AreEqual("HAPPY", mood);
         }
+        [TestMethod]
+        public void givenNullMood_Should_Return_Exception()
+        {
+            try
+            {
+                string message = null;
+                MoodAnalyser moodAnalyser = new MoodAnalyser(message);
+                string mood = moodAnalyser.analyseMood();
+            }
+            catch (MoodAnalyserExceptions e)
+            {
+                Assert.AreEqual("Mood Shouls be Null", e.Message);
+            }
+        }
+        [TestMethod]
+        public void givenInvalidMood_Should_Return_Exception()
+        {
+            try
+            {
+                string message = "";
+                MoodAnalyser moodAnalyser = new MoodAnalyser(message);
+                string mood = moodAnalyser.analyseMood();
+            }
+            catch (MoodAnalyserExceptions e)
+            {
+                Assert.AreEqual("Mood should not the excepeted", e.Message);
+            }
+        }
+
 
     }
 }
