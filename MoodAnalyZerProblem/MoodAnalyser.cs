@@ -14,12 +14,20 @@ namespace MoodAnalyZerProblem
 
         public string analyseMood()
         {
-            if (this.message.Contains("Sad"))
-                return "SAD";
-            else if (this.message.Contains("Happy"))
-                return "HAPPY";
-            else
-                return "HAPPY";
+            try
+            {
+                if (this.message.Equals(string.Empty))
+                {
+                    throw new MoodAnalyserExceptions(MoodAnalyserExceptions.ExceptionType.ENTERED_EMPTY, "Mood should not the excepeted");
+                }
+                if (this.message.Contains("Sad"))
+                    return "SAD";
+                else
+                    return "HAPPY";
+            }catch(NullReferenceException e)
+            {
+                throw new MoodAnalyserExceptions(MoodAnalyserExceptions.ExceptionType.ENTER_NULL, "Mood Shouls be Null");
+            }
         }
     }
 }
