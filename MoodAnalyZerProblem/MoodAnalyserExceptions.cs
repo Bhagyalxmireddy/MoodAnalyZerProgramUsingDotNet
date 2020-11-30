@@ -15,7 +15,7 @@ namespace MoodAnalyZerProblem
         /// </summary>
         public enum ExceptionType
         {
-            ENTER_NULL, ENTERED_EMPTY,NO_SUCH_CLASS,NO_SUCH_METHOD
+            ENTER_NULL, ENTERED_EMPTY,NO_SUCH_CLASS,NO_SUCH_METHOD,NO_SUCH_FIELD
         }
         /// <summary>
         /// The entered empty

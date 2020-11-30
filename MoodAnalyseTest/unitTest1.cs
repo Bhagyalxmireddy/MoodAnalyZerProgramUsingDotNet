@@ -91,6 +91,9 @@ namespace MoodAnalyseTest
                 Assert.AreEqual("Mood should not the excepeted", e.Message);
             }
         }
+        /// <summary>
+        /// givenMoodAnalyserClassName_ShouldReturnMoodAnalyserObject
+        /// </summary>
         [TestMethod]
         public void givenMoodAnalyserClassName_ShouldReturnMoodAnalyserObject()
         {
@@ -98,6 +101,9 @@ namespace MoodAnalyseTest
             object obj = MoodAnalyserFactory.CreateMoodAnalyser("MoodAnalyZerProblem.MoodAnalyser", "MoodAnalyser");
             expected.Equals(obj);
         }
+        /// <summary>
+        /// givenMoodAnalyserClassName_NotProper_ShouldReturnException
+        /// </summary>
         [TestMethod]
         public void givenMoodAnalyserClassName_NotProper_ShouldReturnException()
         {
@@ -111,6 +117,9 @@ namespace MoodAnalyseTest
                 Assert.AreEqual(e.Message, "class not found");
             }
         }
+        /// <summary>
+        ///  givenMoodAnalyserClassName_WhenConstructorNotProper_ShouldReturnException
+        /// </summary>
         [TestMethod]
         public void givenMoodAnalyserClassName_WhenConstructorNotProper_ShouldReturnException()
         {
@@ -124,6 +133,9 @@ namespace MoodAnalyseTest
                 Assert.AreEqual(e.Message, "Constructor not found");
             }
         }
+        /// <summary>
+        /// givenMoodAnalyserClassName_ShouldReturnMoodAnalyserObject_UsingParameterizedConstructor
+        /// </summary>
         [TestMethod]
         public void givenMoodAnalyserClassName_ShouldReturnMoodAnalyserObject_UsingParameterizedConstructors()
         {
@@ -131,6 +143,9 @@ namespace MoodAnalyseTest
             object obj = MoodAnalyserFactory.CreateMoodAnalyserUsingParameterizedConstructor("MoodAnalyZerProblem.MoodAnalyser", "MoodAnalyser", "HAPPY");
             expected.Equals(obj);
         }
+        /// <summary>
+        /// givenMoodAnalyserClassName_NotProper_ShouldReturnException_UsingParameterizedConstructors
+        /// </summary>
         [TestMethod]
         public void givenMoodAnalyserClassName_NotProper_ShouldReturnException_UsingParameterizedConstructors()
         {
@@ -144,6 +159,9 @@ namespace MoodAnalyseTest
                 Assert.AreEqual(e.Message, "class Not found");
             }
         }
+        /// <summary>
+        /// givenMoodAnalyserClassName_WhenConstructorNotProper_ShouldReturnException_UsingParameterizedConstructors
+        /// </summary>
         [TestMethod]
         public void givenMoodAnalyserClassName_WhenConstructorNotProper_ShouldReturnException_UsingParameterizedConstructors()
         {
@@ -157,13 +175,19 @@ namespace MoodAnalyseTest
                 Assert.AreEqual(e.Message, "Constructor is not found");
             }
         }
+        /// <summary>
+        /// givenHappyMood_ShouldReturnHappy_UsingReflections
+        /// </summary>
         [TestMethod]
-        public void givenHappyMood_ShouldReturnHappy()
+        public void givenHappyMood_ShouldReturnHappy_UsingReflections()
         {
             string excepted = "HAPPY";
             string mood = MoodAnalyserFactory.InvokeAnalyseMood(" this is Happy ", "analyseMood");
             Assert.AreEqual(excepted, mood);
         }
+        /// <summary>
+        /// givenHappyMessage_WithImproperMethod_ShouldThrowException
+        /// </summary>
         [TestMethod]
         public void givenHappyMessage_WithImproperMethod_ShouldThrowException()
         {
@@ -174,6 +198,35 @@ namespace MoodAnalyseTest
             }catch(MoodAnalyserExceptions e)
             {
                 Assert.AreEqual(e.Message, "Method is not found");
+            }
+        }
+        [TestMethod]
+        public void givenHappyMessage_WithReflector_Should_ReturnHappy()
+        {
+            string result = MoodAnalyserFactory.setField("HAPPY", "message");
+            Assert.AreEqual("HAPPY", result);
+        }
+        [TestMethod]
+        public void givenWrongMessage_WithReflector_Should_ReturnException()
+        {
+            try
+            {
+                string result = MoodAnalyserFactory.setField("HAPY", "message"); 
+            }catch(MoodAnalyserExceptions e)
+            {
+                Assert.AreEqual(e.Message, "Field not found");
+            }           
+        }
+        [TestMethod]
+        public void givenNullMessage_WithReflector_ShouldReturnException()
+        {
+            try
+            {
+                string result = MoodAnalyserFactory.setField("", "message");
+            }
+            catch (MoodAnalyserExceptions e)
+            {
+                Assert.AreEqual(e.Message, "Message should not be null");
             }
         }
 
