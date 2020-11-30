@@ -3,60 +3,101 @@ using MoodAnalyZerProblem;
 
 namespace MoodAnalyseTest
 {
+    /// <summary>
+    /// Ms Testing Class
+    /// </summary>
     [TestClass]
     public class UnitTest1
     {
-        
+        /// <summary>
+        /// Givens the sad mood should return sad.
+        /// </summary>
         [TestMethod]
         public void givenSadMood_Should_Return_Sad()
         {
+            ///Arrange
             MoodAnalyser analyser = new MoodAnalyser("i am  in Sad Mood");
+            ///Act
             string mood = analyser.analyseMood();
+            ///Assert
             Assert.AreEqual("SAD", mood);
         }
+        /// <summary>
+        /// Givens the happy mood should return happy.
+        /// </summary>
         [TestMethod]
         public void givenHappyMood_Should_Return_Happy()
         {
+            ///Arrange
             MoodAnalyser analyser = new MoodAnalyser("i am  in Happy Mood");
+            ///Act
             string mood = analyser.analyseMood();
+            ///Assert
             Assert.AreEqual("HAPPY", mood);
         }
+        /// <summary>
+        /// Givens the null mood should return happy.
+        /// </summary>
+        /// <returns>Happy</returns>
         [TestMethod]
         public void givenNullMood_Should_Return_Happy()
         {
+            ///Arrange
             MoodAnalyser analyser = new MoodAnalyser("i am  in Null Mood");
+            ///Act
             string mood = analyser.analyseMood();
+            ///Assert
             Assert.AreEqual("HAPPY", mood);
         }
+        /// <summary>
+        /// Givens the null mood should return exception.
+        /// </summary>
+        /// <returns>Exceptions</returns>
         [TestMethod]
         public void givenNullMood_Should_Return_Exception()
         {
             try
             {
+                ///Arrange
                 string message = null;
                 MoodAnalyser moodAnalyser = new MoodAnalyser(message);
+                ///Act
                 string mood = moodAnalyser.analyseMood();
             }
             catch (MoodAnalyserExceptions e)
             {
+                ///Assert
                 Assert.AreEqual("Mood Shouls be Null", e.Message);
             }
         }
+        /// <summary>
+        /// Givens the invalid mood should return exception.
+        /// </summary>
+        /// <returns>Exceptions</returns>
         [TestMethod]
         public void givenInvalidMood_Should_Return_Exception()
         {
             try
             {
+                ///Arrange
                 string message = "";
                 MoodAnalyser moodAnalyser = new MoodAnalyser(message);
+                ///Act
                 string mood = moodAnalyser.analyseMood();
             }
             catch (MoodAnalyserExceptions e)
             {
+                ///Assert
                 Assert.AreEqual("Mood should not the excepeted", e.Message);
             }
         }
+        [TestMethod]
+        public void givenMoodAnalyserClassName_ShouldReturnMoodAnalyserObject()
+        {
+            object expected = new MoodAnalyser();
+            object obj = MoodAnalyserFactory.CreateMoodAnalyser("MoodAnalyZerProblem.MoodAnalyser", "MoodAnalyser");
+            expected.Equals(obj);
 
-
+        }
     }
 }

@@ -4,14 +4,37 @@ using System.Text;
 
 namespace MoodAnalyZerProblem
 {
+    /// <summary>
+    /// MoodAnalyser Class
+    /// </summary>
     public class MoodAnalyser
     {
-        private string message;
+        /// <summary>
+        /// Initialiseing variables
+        /// </summary>
+        public string message;
+
+        public MoodAnalyser()
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MoodAnalyser"/> class.
+        /// </summary>
+        /// <param name="message">The message.</param>
         public MoodAnalyser(string message)
         {
             this.message = message;
         }
-
+        /// <summary>
+        /// Analyses the mood.
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="MoodAnalyserExceptions">
+        /// Mood should not the excepeted
+        /// or
+        /// Mood Shouls be Null
+        /// </exception>
         public string analyseMood()
         {
             try
