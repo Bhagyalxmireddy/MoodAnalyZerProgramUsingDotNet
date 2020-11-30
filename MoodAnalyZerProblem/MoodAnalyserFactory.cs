@@ -29,7 +29,7 @@ namespace MoodAnalyseTest
             }
             else
             {
-                throw new MoodAnalyserExceptions(MoodAnalyserExceptions.ExceptionType.NO_SUCH_METHOD, "method not found");
+                throw new MoodAnalyserExceptions(MoodAnalyserExceptions.ExceptionType.NO_SUCH_METHOD, "Constructor not found");
             }
         }
     }
