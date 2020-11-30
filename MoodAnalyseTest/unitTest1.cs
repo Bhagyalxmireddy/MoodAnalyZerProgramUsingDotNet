@@ -137,11 +137,11 @@ namespace MoodAnalyseTest
             try
             {
                 object expected = new MoodAnalyser("HAPPY");
-                object obj = MoodAnalyserFactory.CreateMoodAnalyser("MoodAnalyZerApp.MoodAnalyser", "MoodAnalyser");
+                object obj = MoodAnalyserFactory.CreateMoodAnalyserUsingParameterizedConstructor("MoodAnalyZerApp.MoodAnalyser", "MoodAnalyser","HAPPY");
             }
             catch (MoodAnalyserExceptions e)
             {
-                Assert.AreEqual(e.Message, "class not found");
+                Assert.AreEqual(e.Message, "class Not found");
             }
         }
         [TestMethod]
@@ -150,11 +150,11 @@ namespace MoodAnalyseTest
             try
             {
                 object expected = new MoodAnalyser("HAPPY");
-                object obj = MoodAnalyserFactory.CreateMoodAnalyser("MoodAnalyZerProblem.MoodAnalyser", "MoodAnalyse");
+                object obj = MoodAnalyserFactory.CreateMoodAnalyserUsingParameterizedConstructor("MoodAnalyZerProblem.MoodAnalyser", "MoodAnalyse","HAPPY");
             }
             catch (MoodAnalyserExceptions e)
             {
-                Assert.AreEqual(e.Message, "Constructor not found");
+                Assert.AreEqual(e.Message, "Constructor is not found");
             }
         }
 
