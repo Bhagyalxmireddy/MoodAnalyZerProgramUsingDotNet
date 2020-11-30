@@ -29,7 +29,7 @@ namespace MoodAnalyseTest
             }
             else
             {
-                throw new MoodAnalyserExceptions(MoodAnalyserExceptions.ExceptionType.NO_SUCH_METHOD, "method not found");
+                throw new MoodAnalyserExceptions(MoodAnalyserExceptions.ExceptionType.NO_SUCH_METHOD, "Constructor not found");
             }
         }
         public static object CreateMoodAnalyserUsingParameterizedConstructor(string className,string constructorname,string message)
@@ -45,7 +45,7 @@ namespace MoodAnalyseTest
                 }
                 else
                 {
-                    throw new MoodAnalyserExceptions(MoodAnalyserExceptions.ExceptionType.NO_SUCH_METHOD, "Construtor is not found");
+                    throw new MoodAnalyserExceptions(MoodAnalyserExceptions.ExceptionType.NO_SUCH_METHOD, "Constructor is not found");
                 }
             }
             else
