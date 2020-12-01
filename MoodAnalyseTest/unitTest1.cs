@@ -211,7 +211,7 @@ namespace MoodAnalyseTest
         {
             try
             {
-                string result = MoodAnalyserFactory.setField("HAPY", "message"); 
+                string result = MoodAnalyserFactory.setField("HAPPY", "meage"); 
             }catch(MoodAnalyserExceptions e)
             {
                 Assert.AreEqual(e.Message, "Field not found");
@@ -222,7 +222,7 @@ namespace MoodAnalyseTest
         {
             try
             {
-                string result = MoodAnalyserFactory.setField("", "message");
+                string result = MoodAnalyserFactory.setField(null, "message");
             }
             catch (MoodAnalyserExceptions e)
             {
